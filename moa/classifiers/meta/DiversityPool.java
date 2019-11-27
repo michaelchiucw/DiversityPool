@@ -415,4 +415,7 @@ public class DiversityPool extends AbstractClassifier implements MultiClassClass
 		this.weights = new double[this.poolSizeOption.getValue()];
 	}
 	
+	enum DRIFT_LEVEL {
+    	NORMAL, WARNING, OUTCONTROL
+    }
 }
