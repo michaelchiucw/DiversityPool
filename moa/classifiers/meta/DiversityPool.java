@@ -398,24 +398,11 @@ public class DiversityPool extends AbstractClassifier implements MultiClassClass
 		this.newClassifierWeight += this.newClassifier.correctlyClassifies(inst) ? 1.0 : 0.0;
 	}
 	
-	private double[] getNormalisedWeigths() {
-		double[] normalisedWeights = null;
-		if (this.testChunk.size() > 0) {
-			normalisedWeights = this.weights.clone();
-			for (int i = 0; i < normalisedWeights.length; ++i) {
-				normalisedWeights[i] /= this.testChunk.size();
-			}
-		} else {
-			System.out.println("The test chunk is empty, cannot normalise the weigths.");
-		}
-		return normalisedWeights;
-	}
-	
 	private void clearWeights() {
 		this.weights = new double[this.poolSizeOption.getValue()];
 	}
 	
 	enum DRIFT_LEVEL {
-    	NORMAL, WARNING, OUTCONTROL
-    }
+    		NORMAL, WARNING, OUTCONTROL
+    	}
 }
